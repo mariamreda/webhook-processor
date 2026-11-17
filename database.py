@@ -1,14 +1,22 @@
 
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 # SQLite database file
-DATABASE_URL = "sqlite:////app/data/alerts.db"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./alerts.db")
+
+connect_args = (
+    {"check_same_thread": False}
+    if DATABASE_URL.startswith("sqlite")
+    else {}
+)
+
 
 # Create the database engine
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False}
+    connect_args=connect_args
 )
 
 # Create database sessions

@@ -5,6 +5,8 @@ services:
     container_name: webhook-processor
     ports:
       - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:////app/data/alerts.db
     volumes:
       - ./data:/app/data
     restart: unless-stopped
