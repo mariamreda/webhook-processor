@@ -1,0 +1,10 @@
+
+services:
+  webhook-api:
+    build: .
+    container_name: webhook-processor
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
