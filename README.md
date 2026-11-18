@@ -168,6 +168,18 @@ docker compose down
 
 The database data is preserved in the mounted `data` directory.
 
+## Live Deployment
+
+The application is deployed on Render and is publicly accessible.
+
+- **Base URL:** https://webhook-processor-w4va.onrender.com
+- **Health Check:** https://webhook-processor-w4va.onrender.com/health
+- **API Documentation (Swagger UI):** https://webhook-processor-w4va.onrender.com/docs
+
+The API can be tested directly through the Swagger UI. The deployed application supports webhook submission, simulated processing, alert persistence, and retrieval of processed alerts.
+
+**Note:** The application is hosted on Render's free tier, so the service may spin down after inactivity. The first request after inactivity may take some time to respond.
+
 ## Author
 
 Mariam Reda
